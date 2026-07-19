@@ -1,5 +1,5 @@
 // Store all expenses
-const expenses = [];
+let expenses = [];
 
 // Select the form
 const expenseForm = document.getElementById("expense-form");
@@ -13,6 +13,7 @@ const totalElement = document.getElementById("total");
 
     if (index !== -1) {
         expenses.splice(index, 1);
+        saveExpenses();
     }
 
     displayExpenses();
@@ -26,6 +27,9 @@ function updateTotal() {
 
     totalElement.textContent = total;
 
+}
+function saveExpenses() {
+    localStorage.setItem("expenses", JSON.stringify(expenses));
 }
 function displayExpenses() {
 
@@ -73,6 +77,7 @@ expenseForm.addEventListener("submit", function (event) {
 
     // Store expense in array
     expenses.push(expense);
+    saveExpenses();
  
     displayExpenses();
     updateTotal();
@@ -84,3 +89,11 @@ expenseForm.addEventListener("submit", function (event) {
     // Clear the form
     expenseForm.reset();
 });
+const storedExpenses = localStorage.getItem("expenses");
+
+if (storedExpenses) {
+    expenses = JSON.parse(storedExpenses);
+
+    displayExpenses();
+    updateTotal();
+}
