@@ -1,5 +1,7 @@
 const filterCategory = document.getElementById("filter-category");
 const searchInput = document.getElementById("search");
+const transactionCount =
+document.getElementById("transaction-count");
 // Store all expenses
 let expenses = [];
 
@@ -21,13 +23,15 @@ const totalElement = document.getElementById("total");
     displayExpenses();
     updateTotal();
 }
-function updateTotal() {
+function updateTotal(){
 
-    const total = expenses.reduce(function (sum, expense) {
+    const total = expenses.reduce(function(sum, expense){
         return sum + expense.amount;
-    }, 0);
+    },0);
 
     totalElement.textContent = total;
+
+    transactionCount.textContent = expenses.length;
 
 }
 function saveExpenses() {
@@ -60,20 +64,31 @@ function displayExpenses() {
 }
 
     filteredExpenses.forEach(function (expense) {
+        const formattedDate =
+new Date(expense.date).toLocaleDateString("en-IN",{
+    day:"numeric",
+    month:"short",
+    year:"numeric"
+});
       
 
         const li = document.createElement("li");
 
-        li.innerHTML = `
-            <strong>${expense.title}</strong><br>
-            ₹${expense.amount}<br>
-            ${expense.category}<br>
-            ${expense.date}<br><br>
+       li.innerHTML = `
+    <div class="expense-info">
+        <h3>${expense.title}</h3>
 
-            <button onclick="deleteExpense(${expense.id})">
-                Delete
-            </button>
-        `;
+        <p><strong>Amount:</strong> ₹${expense.amount}</p>
+
+        <p><strong>Category:</strong> ${expense.category}</p>
+
+        <p><strong>Date:</strong> ${formattedDate}</p>
+    </div>
+
+    <button onclick="deleteExpense(${expense.id})">
+        Delete
+    </button>
+`;
 
         expenseList.appendChild(li);
 
