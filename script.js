@@ -4,6 +4,7 @@ const expenses = [];
 // Select the form
 const expenseForm = document.getElementById("expense-form");
 const expenseList = document.getElementById("expense-list");
+const totalElement = document.getElementById("total");
    function deleteExpense(id) {
 
     const index = expenses.findIndex(function (expense) {
@@ -15,6 +16,16 @@ const expenseList = document.getElementById("expense-list");
     }
 
     displayExpenses();
+    updateTotal();
+}
+function updateTotal() {
+
+    const total = expenses.reduce(function (sum, expense) {
+        return sum + expense.amount;
+    }, 0);
+
+    totalElement.textContent = total;
+
 }
 function displayExpenses() {
 
@@ -64,6 +75,7 @@ expenseForm.addEventListener("submit", function (event) {
     expenses.push(expense);
  
     displayExpenses();
+    updateTotal();
 
 
     // Display array in console
