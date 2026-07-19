@@ -1,4 +1,5 @@
 const filterCategory = document.getElementById("filter-category");
+const searchInput = document.getElementById("search");
 // Store all expenses
 let expenses = [];
 
@@ -39,16 +40,20 @@ function displayExpenses() {
     expenseList.innerHTML = "";
 
     const selectedCategory = filterCategory.value;
+    const searchText = searchInput.value.toLowerCase();
 
     const filteredExpenses = expenses.filter(function (expense) {
 
-        if (selectedCategory === "All") {
-            return true;
-        }
+    const matchesCategory =
+        selectedCategory === "All" ||
+        expense.category === selectedCategory;
 
-        return expense.category === selectedCategory;
+    const matchesSearch =
+        expense.title.toLowerCase().includes(searchText);
 
-    });
+    return matchesCategory && matchesSearch;
+
+});
       if (filteredExpenses.length === 0) {
     expenseList.innerHTML = "<p>No expenses found.</p>";
     return;
@@ -121,5 +126,8 @@ if (storedExpenses) {
     updateTotal();
 }
 filterCategory.addEventListener("change", function () {
+    displayExpenses();
+});
+searchInput.addEventListener("input", function () {
     displayExpenses();
 });
