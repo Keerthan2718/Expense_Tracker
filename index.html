@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Expense Tracker</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+
+    <h1>Expense Tracker</h1>
+
+    <form id="expense-form">
+
+        <input
+            type="text"
+            id="title"
+            placeholder="Expense Name"
+            required
+        >
+
+        <input
+            type="number"
+            id="amount"
+            placeholder="Amount"
+            required
+        >
+
+        <select id="category">
+
+            <option value="">Select Category</option>
+
+            <option value="Food">Food</option>
+
+            <option value="Transport">Transport</option>
+
+            <option value="Shopping">Shopping</option>
+
+            <option value="Bills">Bills</option>
+
+            <option value="Other">Other</option>
+
+        </select>
+
+        <input
+            type="date"
+            id="date"
+            required
+        >
+
+        <button type="submit">
+            Add Expense
+        </button>
+
+    </form>
+
+    <div class="summary">
+
+        <h2>Total: ₹<span id="total">0</span></h2>
+
+    </div>
+
+    <div class="filter">
+
+        <select id="filter-category">
+
+            <option value="All">All Categories</option>
+
+            <option value="Food">Food</option>
+
+            <option value="Transport">Transport</option>
+
+            <option value="Shopping">Shopping</option>
+
+            <option value="Bills">Bills</option>
+
+            <option value="Other">Other</option>
+
+        </select>
+
+    </div>
+
+    <ul id="expense-list">
+
+    </ul>
+
+</div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
