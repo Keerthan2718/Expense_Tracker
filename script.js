@@ -3,12 +3,36 @@ const expenses = [];
 
 // Select the form
 const expenseForm = document.getElementById("expense-form");
+const expenseList = document.getElementById("expense-list");
+function displayExpenses() {
+
+    // Clear old list
+    expenseList.innerHTML = "";
+
+    // Loop through all expenses
+    expenses.forEach(function (expense) {
+
+        const li = document.createElement("li");
+
+        li.innerHTML = `
+            <strong>${expense.title}</strong> -
+            ₹${expense.amount}<br>
+            ${expense.category} |
+            ${expense.date}
+            <button>Delete</button>
+        `;
+
+        expenseList.appendChild(li);
+
+    });
+
+}
 
 // Listen for form submission
 expenseForm.addEventListener("submit", function (event) {
 
     event.preventDefault();
-
+    
     // Get input values
     const title = document.getElementById("title").value;
     const amount = Number(document.getElementById("amount").value);
@@ -26,6 +50,8 @@ expenseForm.addEventListener("submit", function (event) {
 
     // Store expense in array
     expenses.push(expense);
+    displayExpenses();
+
 
     // Display array in console
     console.log(expenses);
