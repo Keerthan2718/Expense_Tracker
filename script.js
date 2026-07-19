@@ -4,6 +4,18 @@ const expenses = [];
 // Select the form
 const expenseForm = document.getElementById("expense-form");
 const expenseList = document.getElementById("expense-list");
+   function deleteExpense(id) {
+
+    const index = expenses.findIndex(function (expense) {
+        return expense.id === id;
+    });
+
+    if (index !== -1) {
+        expenses.splice(index, 1);
+    }
+
+    displayExpenses();
+}
 function displayExpenses() {
 
     // Clear old list
@@ -19,7 +31,7 @@ function displayExpenses() {
             ₹${expense.amount}<br>
             ${expense.category} |
             ${expense.date}
-            <button>Delete</button>
+            <button onclick="deleteExpense(${expense.id})">Delete</button>
         `;
 
         expenseList.appendChild(li);
@@ -50,6 +62,7 @@ expenseForm.addEventListener("submit", function (event) {
 
     // Store expense in array
     expenses.push(expense);
+ 
     displayExpenses();
 
 
