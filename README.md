@@ -11,20 +11,6 @@ https://dailyyexpensetracker.netlify.app/
 
 ---
 
-## 📸 Screenshot
-<img width="1352" height="689" alt="filter" src="https://github.com/user-attachments/assets/7699ab87-9958-46c7-8e80-8f4b61934941" />
-<img width="1362" height="691" alt="home" src="https://github.com/user-attachments/assets/e75485db-d3ff-452d-accb-48fddf89af5d" />
-<img width="503" height="690" alt="list" src="https://github.com/user-attachments/assets/d9d99293-0276-464b-a126-f2f4cbd53704" />
-<img width="1356" height="692" alt="serach" src="https://github.com/user-attachments/assets/12ff9ae0-57fa-4e18-a0c4-1e47b7c287f9" />
-
-
-
-
-
-
-
----
-
 ## ✨ Features
 
 - ➕ Add new expenses
