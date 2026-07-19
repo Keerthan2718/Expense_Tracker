@@ -85,4 +85,4 @@ This project helped me strengthen my understanding of:
 
 ---
 
-**Made with ❤️ using HTML, CSS, and JavaScript**
+
