@@ -1,3 +1,4 @@
+const filterCategory = document.getElementById("filter-category");
 // Store all expenses
 let expenses = [];
 
@@ -33,20 +34,40 @@ function saveExpenses() {
 }
 function displayExpenses() {
 
-    // Clear old list
+    
+
     expenseList.innerHTML = "";
 
-    // Loop through all expenses
-    expenses.forEach(function (expense) {
+    const selectedCategory = filterCategory.value;
+
+    const filteredExpenses = expenses.filter(function (expense) {
+
+        if (selectedCategory === "All") {
+            return true;
+        }
+
+        return expense.category === selectedCategory;
+
+    });
+      if (filteredExpenses.length === 0) {
+    expenseList.innerHTML = "<p>No expenses found.</p>";
+    return;
+}
+
+    filteredExpenses.forEach(function (expense) {
+      
 
         const li = document.createElement("li");
 
         li.innerHTML = `
-            <strong>${expense.title}</strong> -
+            <strong>${expense.title}</strong><br>
             ₹${expense.amount}<br>
-            ${expense.category} |
-            ${expense.date}
-            <button onclick="deleteExpense(${expense.id})">Delete</button>
+            ${expense.category}<br>
+            ${expense.date}<br><br>
+
+            <button onclick="deleteExpense(${expense.id})">
+                Delete
+            </button>
         `;
 
         expenseList.appendChild(li);
@@ -54,6 +75,8 @@ function displayExpenses() {
     });
 
 }
+
+
 
 // Listen for form submission
 expenseForm.addEventListener("submit", function (event) {
@@ -97,3 +120,6 @@ if (storedExpenses) {
     displayExpenses();
     updateTotal();
 }
+filterCategory.addEventListener("change", function () {
+    displayExpenses();
+});
