@@ -7,15 +7,13 @@ A modern and responsive **Expense Tracker** built using **HTML, CSS, and JavaScr
 ## 🚀 Live Demo
 
 🔗 **Try the application here:**  
-https://YOUR-NETLIFY-URL.netlify.app
+https://dailyyexpensetracker.netlify.app/
 
 ---
 
 ## 📸 Screenshot
+<img width="1356" height="692" alt="serach" src="https://github.com/user-attachments/assets/eae00dad-3619-4dcb-9165-1d1174a2b16e" />
 
-> Add a screenshot of your application after deployment.
-
-![Expense Tracker Screenshot](images/screenshot.png)
 
 ---
 
@@ -43,21 +41,6 @@ https://YOUR-NETLIFY-URL.netlify.app
 
 ---
 
-## 📂 Project Structure
-
-```
-expense-tracker/
-│
-├── index.html
-├── style.css
-├── script.js
-├── README.md
-│
-└── images/
-    └── screenshot.png
-```
-
----
 
 ## 💻 Run Locally
 
@@ -105,55 +88,6 @@ This project helped me strengthen my understanding of:
 - Dynamic UI Updates
 - Git & GitHub Workflow
 - Netlify Deployment
-
----
-
-## 🤝 Contributing
-
-Contributions, suggestions, and improvements are welcome.
-
-1. Fork the repository
-2. Create a new branch
-
-```bash
-git checkout -b feature-name
-```
-
-3. Commit your changes
-
-```bash
-git commit -m "Add new feature"
-```
-
-4. Push to your branch
-
-```bash
-git push origin feature-name
-```
-
-5. Open a Pull Request
-
----
-
-## 👨‍💻 Author
-
-**Keerthan**
-
-GitHub: https://github.com/YOUR_USERNAME
-
-LinkedIn: https://linkedin.com/in/YOUR_LINKEDIN
-
----
-
-## 📄 License
-
-This project is licensed under the **MIT License**.
-
----
-
-## ⭐ Support
-
-If you found this project useful, consider giving it a ⭐ on GitHub. It motivates me to build and share more projects.
 
 ---
 
